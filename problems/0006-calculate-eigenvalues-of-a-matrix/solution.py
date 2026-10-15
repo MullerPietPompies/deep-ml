@@ -6,5 +6,4 @@ def calculate_eigenvalues(matrix: torch.Tensor) -> torch.Tensor:
     Input: 2x2 tensor; Output: 1-D tensor with the two eigenvalues in descending order (highest to lowest).
     """
     # Your implementation here
-    eig = torch.linalg.eigvals(matrix).real
-    return torch.sort(eig, descending=True)[0].detach()
+    return torch.sort(torch.linalg.eigvals(matrix).real, descending=True)[0].detach()
