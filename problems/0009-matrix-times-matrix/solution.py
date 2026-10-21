@@ -1,15 +1,13 @@
-def matrixmul(a:list[list[int|float]],
-              b:list[list[int|float]])-> list[list[int|float]]:
+import torch
 
-    import numpy as np
-    # if len(a) != len(b[0]):
-    
-    #     return -1
+def matrixmul(a, b) -> torch.Tensor:
+    """
+    Multiply two matrices using PyTorch.
+    Inputs can be Python lists, NumPy arrays, or torch Tensors.
+    Returns a 2D tensor of shape (m, n) or a scalar tensor -1 if dimensions mismatch.
+    """
+
     try:
-        a_arr = np.array(a)
-        b_arr = np.array(b)
-
-        c = np.matmul(a, b)
-    except ValueError:
+        return torch.matmul(a, b)
+    except RuntimeError:
         return -1
-    return c
